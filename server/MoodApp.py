@@ -17,8 +17,8 @@ def generateMoodbar():
         return 'Missing resolution argument', 400
 
     # Launching the command with the parameter.
-    process = subprocess.run(['moodbar', '-o ' + data['destination'], data['source'], data['resolution']])
+    process = subprocess.run(['moodbar', '-o',  data['destination'], data['source'], data['resolution']])
     if process.returncode != 0:
-        return 'error', 501
+        return 'error', 503
 
     return 'ok', 200
