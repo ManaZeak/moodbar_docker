@@ -52,7 +52,7 @@ int main(int argc, char *argv[]) {
       printUsage(std::cout, argv[0]);
       return 0;
     }
-  } else if (argc == 4 and argv[1] == "-o"s) {
+  } else if (argc == 5 and argv[1] == "-o"s) {
     isCorrectUsage = true;
   }
   if (not isCorrectUsage) {
@@ -62,6 +62,7 @@ int main(int argc, char *argv[]) {
 
   const char *argOut = argv[2];
   const char *argIn = argv[3];
+  const int resolution = std::atoi(argv[4]);
 
   // Process input file
 
@@ -72,7 +73,7 @@ int main(int argc, char *argv[]) {
   auto moodAvailable = moodAvailablePromise.get_future();
 
   moodbar_init();
-  MoodbarPipeline mood{uriIn.get()};
+  MoodbarPipeline mood{uriIn.get(), resolution};
   mood.Finished = [&moodAvailablePromise](bool success) {
     moodAvailablePromise.set_value(success);
   };

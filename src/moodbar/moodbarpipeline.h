@@ -31,7 +31,7 @@ class MoodbarBuilder;
 // Creates moodbar data for a single local music file.
 class MoodbarPipeline {
  public:
-  MoodbarPipeline(const std::string& local_filename);
+  MoodbarPipeline(const std::string& local_filename, const int widthParam);
   ~MoodbarPipeline();
 
   static bool IsAvailable();
@@ -59,6 +59,7 @@ class MoodbarPipeline {
   static const int kBands;
 
   std::string local_filename_;
+  const int width_;
   GstElement* pipeline_;
   GstElement* convert_element_;
 

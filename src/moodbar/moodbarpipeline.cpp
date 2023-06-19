@@ -26,8 +26,9 @@
 bool MoodbarPipeline::sIsAvailable = false;
 const int MoodbarPipeline::kBands = 128;
 
-MoodbarPipeline::MoodbarPipeline(const std::string& local_filename)
+MoodbarPipeline::MoodbarPipeline(const std::string& local_filename, const int widthParam)
     : local_filename_(local_filename),
+      width_(widthParam),
       pipeline_(nullptr),
       convert_element_(nullptr),
       success_(false),
@@ -178,7 +179,7 @@ void MoodbarPipeline::Stop(bool success) {
   success_ = success;
   running_ = false;
   if (builder_ != nullptr) {
-    data_ = builder_->Finish(1000);
+    data_ = builder_->Finish(width_);
     builder_.reset();
   }
 
