@@ -19,7 +19,7 @@ Last sync is at Clementine revision 55edcf5321051e44281f067a7e3ee44871982c12 (20
 
 # About this repo
 
-This repo is a fork of the repo ![exaile/moodbar](https://github.com/exaile/moodbar). This will be used by the project ManaZeak to generate the moodbars of the application.
+This repo is a fork of the repo [exaile/moodbar](https://github.com/exaile/moodbar/). This will be used by the project ManaZeak to generate the moodbars of the application.
 The moodbar component will be present in a docker image with a small python server.
 
 This server is used to allow ManaZeak to launch moodbar command.
