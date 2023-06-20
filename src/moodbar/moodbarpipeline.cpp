@@ -24,7 +24,7 @@
 #include <iostream>
 
 bool MoodbarPipeline::sIsAvailable = false;
-const int MoodbarPipeline::kBands = 128;
+const int MoodbarPipeline::kBands = 2048;
 
 MoodbarPipeline::MoodbarPipeline(const std::string& local_filename, const int widthParam)
     : local_filename_(local_filename),
