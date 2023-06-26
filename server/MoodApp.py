@@ -8,7 +8,6 @@ def generateMoodbar():
     # Loads the JSON into an object.
     data = json.loads(request.data)
 
-
     # Checking the parameters.
     if 'source' not in data:
         return 'Missing source argument', 400
@@ -19,7 +18,12 @@ def generateMoodbar():
     print('Generating moodbar for : ' + data['source'] + ' with resolution : ' + data['resolution'])
 
     # Launching the command with the parameter.
-    process = subprocess.run(['moodbar', '-o',  data['destination'], data['source'], data['resolution']])
+    try:
+        process = subprocess.run(['moodbar', '-o',  data['destination'], data['source'], data['resolution']])
+    except Exception as e:
+        print('error occurred.' + str(e))
+        return 'error', 503
+
     if process.returncode != 0:
         return 'error', 503
 
