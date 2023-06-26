@@ -18,11 +18,7 @@ def generateMoodbar():
     print('Generating moodbar for : ' + data['source'] + ' with resolution : ' + data['resolution'])
 
     # Launching the command with the parameter.
-    try:
-        process = subprocess.run(['moodbar', '-o',  data['destination'], data['source'], data['resolution']])
-    except Exception as e:
-        print('error occurred.' + str(e))
-        return 'error', 503
+    process = subprocess.run(['moodbar', '-o',  data['destination'], data['source'], data['resolution']])
 
     if process.returncode != 0:
         return 'error', 503
