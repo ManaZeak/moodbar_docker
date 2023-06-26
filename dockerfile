@@ -22,4 +22,4 @@ ADD ./server /server
 WORKDIR /server/
 # Launching the python server to launch the moodbar command.
 RUN pip3 install -r requirement.txt --break-system-packages
-ENTRYPOINT ["gunicorn3", "-w", "4", "-b", "0.0.0.0:4545", "MoodApp:app"]
+ENTRYPOINT ["gunicorn3", "-w", "10", "-b", "0.0.0.0:4545", "MoodApp:app"]
