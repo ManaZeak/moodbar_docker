@@ -8,6 +8,8 @@ def generateMoodbar():
     # Loads the JSON into an object.
     data = json.loads(request.data)
 
+    print('Generating moodbar for : ' + data)
+
     # Checking the parameters.
     if 'source' not in data:
         return 'Missing source argument', 400
