@@ -15,7 +15,7 @@ def generateMoodbar():
         return 'Missing destination argument', 400
     if 'resolution' not in data:
         return 'Missing resolution argument', 400
-    print('Generating moodbar for : ' + data['source'] + ' with resolution : ' + data['resolution'])
+    print('Generating moodbar for : ' + data['source'] + ' with resolution : ' + data['resolution'], flush=True)
 
     # Launching the command with the parameter.
     process = subprocess.run(['moodbar', '-o',  data['destination'], data['source'], data['resolution']])
