@@ -1,8 +1,8 @@
 project('moodbar', 'cpp',
-  version : '1.2.1',
+  version : '1.3.0',
   license : 'GPL-3.0+',
   meson_version : '>=0.35',
-  default_options : 'cpp_std=c++14',
+  default_options : 'cpp_std=c++17',
 )
 
 conf = configuration_data()
@@ -38,6 +38,7 @@ moodbar_exe = executable('moodbar',
   'moodbar_exe.cpp',
   include_directories : include_directories('src'),
   link_with : moodbar,
+  link_args : host_machine.system() == 'windows' ? ['-municode'] : [],
   dependencies : [
     dependency('gio-2.0'),
     dep_gstreamer,
