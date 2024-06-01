@@ -18,6 +18,8 @@ RUN meson --buildtype=release build/
 WORKDIR /build/
 RUN ninja
 RUN ninja install
+# Deleting some unused packages
+RUN apt autoremove --purge -y libfftw3-dev libfftw3-bin meson pkgconf ninja-build git cmake libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev libgstreamer-plugins-bad1.0-dev gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-libav gstreamer1.0-tools gstreamer1.0-x gstreamer1.0-alsa gstreamer1.0-gl gstreamer1.0-gtk3 gstreamer1.0-qt5 gstreamer1.0-pulseaudio python3-pip
 ADD ./server /server
 WORKDIR /server/
 # Launching the python server to launch the moodbar command.
